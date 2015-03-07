@@ -41,3 +41,5 @@ public class TestMapper
 }
 ```
 
+It also has a debug mode, that tells you exaclty what property failed to initialise. In the above example, If "FirstName" is null it will tell you that it failed to initialise the "FullName" property. Also you can specify which properties that you dont want to map. For this, you can use GetPropertyName instead of writing the property name as a string.
+
