@@ -7,20 +7,21 @@ For example, you have a "Client"(Id, FirstName, LastName) EF model and a "Client
 
 public class TestMapper
 {
-public static readonly Expression<Func<Client, ClientViewModel>> Map_Client_ClientViewModel =
-  ReflectionHelper.ExpressionMapper<Client, ClientViewModel>
-  (
-    x => new ClientViewModel()
-    {
-      FullName = x.FirstName + " " x.LastName;
-    }
-  );
-
-public void TestFunction()
-{
-  using (var context = new DbContext())
+  public static readonly Expression<Func<Client, ClientViewModel>> Map_Client_ClientViewModel =
+    ReflectionHelper.ExpressionMapper<Client, ClientViewModel>
+    (
+      x => new ClientViewModel()
+      {
+        FullName = x.FirstName + " " x.LastName;
+      }
+    );
+  
+  public void TestFunction()
   {
-    var myQuery = context.Clients.Select(Map_Client_ClientViewModel).Where(x => x.FullName == "Some Thing");
+    using (var context = new DbContext())
+    {
+      var myQuery = context.Clients.Select(Map_Client_ClientViewModel).Where(x => x.FullName == "Some Thing");
+    }
   }
 }
 
