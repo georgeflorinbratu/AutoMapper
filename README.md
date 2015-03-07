@@ -10,20 +10,14 @@ public class Client
 {
   public int Id { get; set; }
   
-  public int FirstName { get; set; }
+  public string FirstName { get; set; }
   
-  public int LastName { get; set; }
+  public string LastName { get; set; }
 }
 
-public class ClientViewModel
+public class ClientViewModel : Client
 {
-  public int Id { get; set; }
-  
-  public int FirstName { get; set; }
-  
-  public int LastName { get; set; }
-  
-  public int FullName { get; set; }
+  public string FullName { get; set; }
 }
 
 public class TestMapper
